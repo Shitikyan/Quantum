@@ -1,0 +1,17 @@
+.container {
+  .text {
+    .title {
+      font-size: 103px;
+      font-weight: 400;
+      display: inline-block;
+      background: linear-gradient(
+        45deg,
+        var(--electric-green),
+        var(--white2),
+        var(--electric-red)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}

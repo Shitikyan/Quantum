@@ -1,9 +1,20 @@
 import { RunnigLine } from "../General/RunningLine";
 import styles from "./styles.module.scss";
 
+const companies: string[] = [
+  "https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/pa1.png",
+  "https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/pa2.png",
+  "https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/pa3.png",
+  "https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/pa4.png",
+  "https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/pa5.png",
+  "https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/pa6.png",
+  "https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/pa7.png",
+  "https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/pa8.png",
+];
+
 export const Statistics = () => {
   return (
-    <section className={styles.contaiener}>
+    <section className={styles.container}>
       <h3 className={styles.title}>STATISTICS FOR TODAY:</h3>
       <div className={styles.top}>
         <div className={styles.left}>
@@ -23,7 +34,13 @@ export const Statistics = () => {
         </p>
         <a href="#">REGISTER</a>
       </div>
-      <RunnigLine />
+      <RunnigLine height={235}>
+        {companies.map((item, i) => (
+          <div className={styles.company}>
+            <img src={item} alt="alt" className={styles.company_image} />
+          </div>
+        ))}
+      </RunnigLine>
     </section>
   );
 };

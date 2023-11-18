@@ -8,6 +8,7 @@ import { Problems } from "../components/Sections/Problems";
 import { Resilience } from "../components/Sections/Resilience";
 import { Footer } from "../components/Footer";
 import { Advisors } from "../components/Sections/Advisors";
+import { Statistics } from "../components/Sections/Statistics";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
           <Problems />
           <Resilience />
           <Advisors />
+          <Statistics />
         </Main>
         <Footer />
       </Layout>

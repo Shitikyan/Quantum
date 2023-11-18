@@ -2,8 +2,9 @@ import { Promo } from "./Promo";
 import { RunnigLine } from "./RunningLine";
 
 import styles from "./styles.module.scss";
+import { IGeneralRunningLine } from "./types";
 
-const arr = [
+const arr: IGeneralRunningLine[] = [
   {
     balance: 697,
     name: "Roberto",
@@ -131,15 +132,15 @@ export const General = () => {
     <section className={styles.container}>
       <Promo />
       <RunnigLine>
-        {arr.map((item: any) => (
-          <li className={styles.item}>
+        {arr.map((item: IGeneralRunningLine, i) => (
+          <li key={i} className={styles.item}>
             <img src={item.src} className={styles.image}></img>
             <div className={styles.text_box}>
               <p className={styles.text}>
                 <span className={styles.name}>{item.name}</span>
               </p>
               <p className={styles.text}>
-                <span>{item.text}Profit:</span>
+                <span>Profit:</span>
                 <span className={styles.profit}>${item.profit}</span>
               </p>
               <p className={styles.text}>
