@@ -1,0 +1,28 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+  max-width: 150px;
+  color: var(--white);
+
+  .number {
+    font-size: 70px;
+    font-weight: 700;
+    text-shadow: 0 0 20px var(--electric-green);
+  }
+
+  .name {
+    font-size: 34px;
+    text-shadow: 0 0 20px var(--electric-green);
+    text-align: center;
+  }
+
+  .descr {
+    text-align: center;
+    font-size: 14px;
+    max-width: 150px;
+  }
+}

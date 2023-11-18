@@ -1,5 +1,18 @@
 .container {
+  position: absolute;
+  display: flex;
+  gap: 1rem;
+  width: max-content;
   padding: 20px 0;
   width: 100%;
-  background-color: var(--electric-green);
+  animation: carusel 45s linear infinite;
+}
+
+@keyframes carusel {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: -200%;
+  }
 }

@@ -1,0 +1,35 @@
+.container {
+  padding-bottom: 150px;
+
+  .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 90px;
+
+    .couple {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+
+      .descr {
+        max-width: 380px;
+        color: var(--white);
+        font-size: 20px;
+        line-height: 1.5;
+
+        .underline {
+          display: inline-block;
+          border-bottom: 2px solid var(--electric-green);
+          padding-bottom: 1px;
+          box-shadow: inset 0 -10px 3px -10px var(--electric-green);
+        }
+
+        .coloredText {
+          text-shadow: 0 0 50px var(--electric-red);
+        }
+      }
+    }
+  }
+}

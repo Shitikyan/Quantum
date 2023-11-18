@@ -1,4 +1,5 @@
 import { Form } from "./Form";
+import { RotatingText } from "./RotatingText";
 
 import styles from "./styles.module.scss";
 
@@ -20,11 +21,16 @@ export const Promo = () => {
           </p>
           <Form />
         </div>
-        <div className={styles.right_block}>
-          <video autoPlay controls>
-            <source src="/blue.mp4" />
-          </video>
-        </div>
+        <RotatingText
+          text="Play video Play video Play video Play video Play video Play video "
+          diameter={320}
+        >
+          <div className={styles.right_block}>
+            <video autoPlay controls>
+              <source src="https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/video.mp4" />
+            </video>
+          </div>
+        </RotatingText>
       </div>
     </div>
   );

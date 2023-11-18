@@ -1,0 +1,38 @@
+.container {
+  position: relative;
+  padding-top: 150px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--electric-green);
+  z-index: 100;
+  background-color: var(--bg-color);
+
+  .title_block {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 10vh;
+
+    .line {
+      flex: 1;
+      height: 1px;
+      background-color: var(--electric-red);
+    }
+
+    .title {
+      font-size: 86px;
+      color: #fff;
+      text-shadow: 0 0 6px var(--electric-red);
+    }
+  }
+
+  .red_line {
+    position: absolute;
+    width: 2px;
+    bottom: 312px;
+    right: 700px;
+    height: 226px;
+    background-color: var(--electric-red);
+    box-shadow: 0 0 10px var(--third-color);
+  }
+}

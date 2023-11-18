@@ -7,6 +7,7 @@ import { Investing } from "../components/Sections/Investing";
 import { Problems } from "../components/Sections/Problems";
 import { Resilience } from "../components/Sections/Resilience";
 import { Footer } from "../components/Footer";
+import { Advisors } from "../components/Sections/Advisors";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
           <Investing />
           <Problems />
           <Resilience />
+          <Advisors />
         </Main>
         <Footer />
       </Layout>

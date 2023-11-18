@@ -1,0 +1,82 @@
+.container {
+  position: relative;
+  .top {
+    display: flex;
+    justify-content: center;
+    gap: 400px;
+    align-items: flex-start;
+
+    .title {
+      font-size: 69px;
+      font-weight: 900;
+      color: var(--white);
+    }
+
+    .line {
+      position: absolute;
+      height: 2px;
+      width: 400px;
+      top: 372px;
+      left: 478px;
+      background-color: var(--electric-red);
+      box-shadow: 0 0 10px var(--third-color);
+    }
+
+    .descr {
+      margin-top: 20px;
+      color: var(--white);
+      text-align: center;
+      padding: 30px;
+      border: 2px solid var(--electric-red);
+      border-radius: 50px;
+      font-size: 20px;
+      line-height: 1.5;
+      box-shadow: 0 0 30px var(--electric-red);
+      max-width: 540px;
+      background-color: var(--block-bg);
+      position: relative;
+    }
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    .subtitle {
+      position: relative;
+      font-size: 30px;
+      color: var(--white);
+      font-weight: 900;
+      text-transform: uppercase;
+      padding-bottom: 4px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        overflow: hidden;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        border-radius: 15px;
+        background-color: var(--electric-green);
+        box-shadow: 0 0 10px var(--electric-green);
+      }
+    }
+
+    .road_map {
+      display: flex;
+      justify-content: space-between;
+      color: var(--white);
+      border: 2px solid var(--electric-red);
+      box-shadow: 0 0 20px var(--electric-red);
+      border-radius: 15px;
+      padding: 40px;
+      backdrop-filter: blur(2px);
+      background-color: var(--block-bg);
+      max-width: 750px;
+    }
+  }
+}

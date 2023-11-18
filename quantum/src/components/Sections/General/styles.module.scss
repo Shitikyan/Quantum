@@ -1,3 +1,47 @@
 .container {
+  position: relative;
   padding-top: 18vh;
+  background-color: var(--bg-color);
+  z-index: 100;
+  overflow: hidden;
+
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 43px;
+    border: 1px solid var(--electric-green);
+    box-shadow: 0 0 10px var(--electric-green);
+    padding-right: 20px;
+
+    .image {
+      height: 85px;
+      width: 85px;
+      min-width: 85px;
+      background-color: red;
+      border-radius: 43px;
+    }
+
+    .text_box {
+      display: flex;
+      gap: 4px;
+      flex-direction: column;
+      padding: 10px;
+      font-size: 14px;
+
+      .text {
+        display: flex;
+        gap: 5px;
+        color: var(--white);
+
+        .profit {
+          color: var(--electric-green);
+        }
+
+        span {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
 }
