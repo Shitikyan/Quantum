@@ -1,0 +1,11 @@
+quantum/node_modules/
+quantum-be/node_modules/
+
+quantum/dist/
+quantum-be/dist/
+
+quantum/package-lock.json
+quantum-be/package-lock.json
+
+quantum/.env
+quantum-be/.env

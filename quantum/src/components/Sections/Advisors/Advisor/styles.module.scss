@@ -1,0 +1,32 @@
+.container {
+  border: 1px solid var(--electric-green);
+  border-radius: 5px;
+  box-shadow: 10px 10px 20px var(--electric-green);
+  padding: 20px;
+  height: 78%;
+
+  .info {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+    .text_info {
+      width: 70%;
+      color: var(--white);
+
+      .name {
+        text-shadow: 0 0 10px var(--electric-green);
+        color: var(--electric-green);
+        font-size: 20px;
+      }
+      .about {
+        font-size: 13px;
+        line-height: 1.5;
+      }
+    }
+  }
+  .descr {
+    color: var(--white);
+    font-size: 20px;
+    line-height: 1.5;
+  }
+}

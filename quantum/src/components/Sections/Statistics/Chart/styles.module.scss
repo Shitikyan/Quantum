@@ -1,7 +1,6 @@
 .container {
-  background-color: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15px;
+  align-self: flex-start;
 }

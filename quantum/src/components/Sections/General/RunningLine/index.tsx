@@ -2,12 +2,18 @@ import { IRunningTextProps } from "./types";
 
 import styles from "./styles.module.scss";
 
-export const RunnigLine = ({ children, height = 135 }: IRunningTextProps) => {
+export const RunnigLine = ({
+  repeatCount = 2,
+  children,
+  height = 135,
+}: IRunningTextProps) => {
+  const arr = new Array(repeatCount).fill(0);
   return (
     <div style={{ position: "relative", height, width: "100%" }}>
       <ul className={styles.container}>
-        {children}
-        {children}
+        {arr.map((_) => (
+          <>{children}</>
+        ))}
       </ul>
     </div>
   );

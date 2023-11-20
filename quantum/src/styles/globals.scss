@@ -393,5 +393,33 @@ html {
     p {
       margin: 0;
     }
+
+    // swiper styles
+
+    .swiper_container {
+      position: relative;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      height: 500px;
+
+      .swiper {
+        width: 100%;
+        height: 100%;
+
+        .swiper-slide {
+          display: flex;
+          align-items: center;
+          width: 30%;
+          margin-right: 23px;
+          height: 100%;
+        }
+
+        .swiper-slide:not(:first-child) {
+          width: 25%;
+          margin-right: 0;
+        }
+      }
+    }
   }
 }

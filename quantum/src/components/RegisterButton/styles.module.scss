@@ -1,0 +1,13 @@
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background: transparent;
+  border: 1px solid var(--electric-red);
+  box-shadow: 0 0 5px var(--electric-red), 0 0 15px var(--electric-red),
+    0 0 20px var(--electric-red), 0 0 30px var(--electric-red);
+  background: var(--electric-red);
+  color: var(--white);
+  border-radius: 5px;
+}

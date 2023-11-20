@@ -6,6 +6,59 @@
   justify-content: center;
   overflow: hidden;
 
+  .title {
+    font-size: 27px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 60px;
+  }
+
+  .top {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 40px;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: space-around;
+      color: var(--white);
+      font-size: 20px;
+      padding: 30px 0;
+
+      .red {
+        text-shadow: 0 0 10px var(--electric-red);
+        color: var(--electric-red);
+        margin-left: 10px;
+      }
+
+      .green {
+        text-shadow: 0 0 10px var(--electric-green);
+        color: var(--electric-green);
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .bottom_text {
+      font-size: 25px;
+      color: var(--white);
+      margin-bottom: 30px;
+    }
+
+    button {
+      width: 300px;
+    }
+  }
+
   .company {
     width: 260px;
     height: 65px;
@@ -18,5 +71,9 @@
     justify-content: center;
     border-radius: 65px;
     margin: 50px 0;
+
+    .company_image {
+      mix-blend-mode: color-burn;
+    }
   }
 }
