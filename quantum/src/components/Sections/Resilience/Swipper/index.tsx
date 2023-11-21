@@ -65,7 +65,7 @@ export const Swipper = () => {
             <div className={stlyes.info}>
               <h6 className={stlyes.info_name}>Changpeng Zhao:</h6>
               <p className={stlyes.info_descr}>
-                Co-founder and CEO of Binance, the world's largest
+                Co-founder and CEO of Binance, the world&#39;s largest
                 cryptocurrency exchange
               </p>
             </div>
@@ -74,8 +74,8 @@ export const Swipper = () => {
             QuantumAI is not our competitor! We want to achieve the common goal
             - the elimination of poverty in every country. On behalf of myself
             and the Binance team, I would like to thank Elon Musk and QuantumAI.
-            Finally, there is a platform that is changing people's lives, not
-            just in words - but in deeds!
+            Finally, there is a platform that is changing people&#39;s lives,
+            not just in words - but in deeds!
           </p>
         </li>
       </ul>

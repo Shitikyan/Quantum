@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  gap: 1rem;
   position: absolute;
   width: max-content;
   animation: carusel 45s linear infinite;

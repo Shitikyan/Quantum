@@ -33,7 +33,7 @@ export const Investing = () => {
         <p className={styles.text}>
           The probability of a QuantumAI error is practically zero! This shows
           that your investments will never go into deficit, it has become a
-          breakthrough in the fight against people's financial problems.
+          breakthrough in the fight against people&#39;s financial problems.
         </p>
       </div>
     </section>

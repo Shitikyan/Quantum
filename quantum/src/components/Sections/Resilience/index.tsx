@@ -7,7 +7,7 @@ import styles from "./styles.module.scss";
 export const Resilience = () => {
   return (
     <section className={styles.container}>
-      <h3 className={styles.title}>WHY SHOULDN'T YOU BE AFRAID?</h3>
+      <h3 className={styles.title}>WHY SHOULDN&#39;T YOU BE AFRAID?</h3>
       <div className={styles.box}>
         <DoubleImage
           shadowColor="green"
@@ -29,13 +29,12 @@ export const Resilience = () => {
           </p>
           <p className={styles.descr}>
             <span className={styles.line} />
-            QuantumAI users' data remains confidential. After 30 days of not
+            QuantumAI users&#39; data remains confidential. After 30 days of not
             using the platform, all data is automatically erased from our
             servers.
           </p>
         </div>
       </div>
-      
     </section>
   );
 };

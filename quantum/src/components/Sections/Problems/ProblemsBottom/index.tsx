@@ -30,8 +30,8 @@ export const ProblemsBottom = () => {
           platform can now forget about their fears, credits, low income,
           depression, and hunger. In Australia, with the help of QuantumAI, UN
           experts promise a 30% boost to the economy by 2027. Your second
-          opportunity to become financially free in 2023 - if you didn't manage
-          to do so on Bitcoin in 2018!
+          opportunity to become financially free in 2023 - if you didn&#39;t
+          manage to do so on Bitcoin in 2018!
         </p>
       </div>
       <div className={styles.bottom}>
