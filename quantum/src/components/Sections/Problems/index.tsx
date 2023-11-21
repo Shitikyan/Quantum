@@ -11,7 +11,6 @@ export const Problems = () => {
         <span className={styles.line} />
       </div>
       <ProblemsTop />
-      <span className={styles.red_line} />
       <ProblemsBottom />
     </section>
   );

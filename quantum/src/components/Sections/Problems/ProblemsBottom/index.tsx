@@ -19,6 +19,8 @@ export const ProblemsBottom = () => {
       <div className={styles.top}>
         <VerticalText className={styles.title} text="SOLUTION" />
         <span className={styles.line} />
+        <span className={styles.red_line} />
+
         <p className={styles.descr}>
           QuantumAI is the future of the money world, helping people and the
           World Bank in the fight against global poverty! The goals of the World
