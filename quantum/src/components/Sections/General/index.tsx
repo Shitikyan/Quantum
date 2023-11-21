@@ -117,13 +117,13 @@ const arr: IGeneralRunningLine[] = [
     balance: 609,
     name: "Jeffrey",
     profit: 5.813,
-    src: "https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/21.jpg",
+    src: "https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/20.jpg",
   },
   {
     balance: 919,
     name: "Cindy",
     profit: 6.552,
-    src: "https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/22.jpg",
+    src: "https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/20.jpg",
   },
 ];
 
