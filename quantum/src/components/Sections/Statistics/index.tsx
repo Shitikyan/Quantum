@@ -53,7 +53,7 @@ export const Statistics = () => {
       </div>
       <RunnigLine repeatCount={3} height={235}>
         {companies.map((item, i) => (
-          <div className={styles.company}>
+          <div key={i} className={styles.company}>
             <img src={item} alt="alt" className={styles.company_image} />
           </div>
         ))}

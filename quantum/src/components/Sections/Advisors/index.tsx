@@ -57,7 +57,7 @@ export const Advisors = () => {
           </div>
         </SwiperSlide>
         {advisors.map((advisor, i) => (
-          <SwiperSlide>
+          <SwiperSlide key={i}>
             <Advisor
               src={advisor.src}
               name={advisor.name}

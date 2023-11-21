@@ -36,8 +36,9 @@ export const ProblemsTop = () => {
           <div
             style={{ flexDirection: i % 2 === 0 ? "row" : "row-reverse" }}
             className={styles.couple}
+            key={i}
           >
-            <div key={i} className={styles.descr}>
+            <div className={styles.descr}>
               <span className={styles.underline}>{item.underlined}</span>{" "}
               {item.text1}
               <p className={styles.coloredText}>{item.text2}</p>
