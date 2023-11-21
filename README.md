@@ -50,7 +50,6 @@ _You can check the app on `http://localhost:3000`_
 - [ExpressJS](https://expressjs.com/)
 - [MongoDB](https://www.mongodb.com/)
 - [Mongoose](https://mongoosejs.com/)
-- [Mongoose](https://mongoosejs.com/)
 - [Axios](https://axios-http.com/)
 - [Chard.JS](https://www.chartjs.org/)
 - [Swiper](https://swiperjs.com/)
