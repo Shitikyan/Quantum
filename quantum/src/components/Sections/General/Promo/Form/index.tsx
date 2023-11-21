@@ -8,12 +8,13 @@ import styles from "./styles.module.scss";
 const validate = ({ firstname, lastname, email, phone, password }: IUser) => {
   const nameRegex = /^[A-Za-z\s]{2,}$/;
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
+  const phoneRegex = /^(?:(?:\+|00)\d{1,3}[\s-]?)?(?:\d{1,4}[\s-]?){1,14}\d$/;
   return (
-    emailRegex.test(email) &&
     nameRegex.test(firstname) &&
     nameRegex.test(lastname) &&
-    password.length > 6
+    password.length > 6 &&
+    phoneRegex.test(phone) &&
+    emailRegex.test(email)
   );
 };
 
