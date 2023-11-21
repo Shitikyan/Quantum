@@ -11,6 +11,7 @@
     content: "";
     position: absolute;
     bottom: 0;
+    animation: topToBottom 13s linear infinite;
     left: 0;
     width: 10%;
     height: 40%;
@@ -28,6 +29,7 @@
     position: absolute;
     top: 0;
     right: 0;
+    animation: bottomToTop 13s linear infinite;
     width: 20%;
     height: 50%;
     transition: var(--transition);
@@ -69,5 +71,29 @@
       font-size: 27px;
       text-align: center;
     }
+  }
+}
+
+@keyframes topToBottom {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 60%;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes bottomToTop {
+  0% {
+    top: 60%;
+  }
+  50% {
+    top: 0;
+  }
+  100% {
+    top: 60%;
   }
 }
