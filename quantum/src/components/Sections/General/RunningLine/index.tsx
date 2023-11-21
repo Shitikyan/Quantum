@@ -8,7 +8,6 @@ export const RunnigLine = ({
   height = 135,
 }: IRunningTextProps) => {
   const arr = new Array(repeatCount).fill(0);
-  console.log(arr.length);
 
   return (
     <div
@@ -16,7 +15,9 @@ export const RunnigLine = ({
       style={{ position: "relative", height, width: "100%" }}
     >
       {arr.map((_, i) => (
-        <ul className={styles.list} key={i}>{children}</ul>
+        <ul className={styles.list} key={i}>
+          {children}
+        </ul>
       ))}
     </div>
   );
