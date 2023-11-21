@@ -17,9 +17,9 @@ export default function Home() {
         <title>QuantumAI</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        <Header />
       </Head>
       <Layout>
+        <Header />
         <Main>
           <General />
           <Investing />
