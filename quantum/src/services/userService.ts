@@ -7,7 +7,7 @@ export class UserService {
 
   public async signin(body: IUser) {
     const { data } = await axios.post(
-      `https://quantom.solicy.net/users/signup`,
+      `https://quantum.solicy.net/users/signup`,
       body,
       {
         headers: {
