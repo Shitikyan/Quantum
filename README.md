@@ -42,4 +42,15 @@
 - Run the server code
   `npm run dev`
 
-* You can check the app on `http://localhost:3000` \*
+_You can check the app on `http://localhost:3000`_
+
+## Tools and technologies
+
+- [Next.JS](https://nextjs.org/)
+- [ExpressJS](https://expressjs.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Mongoose](https://mongoosejs.com/)
+- [Mongoose](https://mongoosejs.com/)
+- [Axios](https://axios-http.com/)
+- [Chard.JS](https://www.chartjs.org/)
+- [Swiper](https://swiperjs.com/)
