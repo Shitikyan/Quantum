@@ -5,14 +5,13 @@ import { UserService } from "@/src/services/userService";
 
 import styles from "./styles.module.scss";
 
-const validate = ({ firstname, lastname, email, phone, password }: IUser) => {
+const validate = ({ firstname, lastname, email, phone }: IUser) => {
   const nameRegex = /^[A-Za-z\s]{2,}$/;
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const phoneRegex = /^(?:(?:\+|00)\d{1,3}[\s-]?)?(?:\d{1,4}[\s-]?){1,14}\d$/;
   return (
     nameRegex.test(firstname) &&
     nameRegex.test(lastname) &&
-    password.length > 6 &&
     phoneRegex.test(phone) &&
     emailRegex.test(email)
   );
@@ -23,7 +22,6 @@ export const Form = () => {
   const [lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
   const service = new UserService();
   return (
     <form className={styles.container}>
@@ -64,28 +62,17 @@ export const Form = () => {
         placeholder="+(000)-00-000-000"
         value={phone}
       />
-      <input
-        onChange={(ev: React.ChangeEvent<HTMLInputElement>) => {
-          setPassword(ev.target.value);
-        }}
-        className={styles.input}
-        type="password"
-        placeholder="password"
-        value={password}
-      />
+
       <RegisterButton
         handleClick={(ev) => {
           ev.preventDefault();
-          if (validate({ email, firstname, lastname, phone, password })) {
-            service
-              .signin({ email, firstname, lastname, phone, password })
-              .then(() => {
-                setEmail("");
-                setFirstName("");
-                setLastName("");
-                setPassword("");
-                setPhone("");
-              });
+          if (validate({ email, firstname, lastname, phone })) {
+            service.signin({ email, firstname, lastname, phone }).then(() => {
+              setEmail("");
+              setFirstName("");
+              setLastName("");
+              setPhone("");
+            });
           } else {
             alert("chexav");
           }

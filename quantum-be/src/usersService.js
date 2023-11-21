@@ -6,8 +6,8 @@ const getUsers = async (req, res) => {
 };
 
 const createUser = async (req, res) => {
-  const { email, firstname, lastname, password, phone } = req.body;
-  const newUser = new User({ email, firstname, lastname, password, phone });
+  const { email, firstname, lastname, phone } = req.body;
+  const newUser = new User({ email, firstname, lastname, phone });
 
   await newUser.save();
 
