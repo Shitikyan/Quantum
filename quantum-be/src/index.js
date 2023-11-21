@@ -9,7 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 const corsOptions = {
-  origin: process.env.CLIENT_URL,
+  origin: "https://quantum-gules.vercel.app",
 };
 
 app.use(cors(corsOptions));
