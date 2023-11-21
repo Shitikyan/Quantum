@@ -10,7 +10,7 @@
 
 ### Backend part
 
-- Open the folder with server code in your terminal
+- Open the folder with the server code in your terminal
   `cd quantum-be`
 
 - Install dependencies
@@ -22,7 +22,7 @@
 
 ### Frontend part
 
-- Open the folder with client code in your terminal
+- Open the folder with the client code in your terminal
   `cd quantum`
 
 - Install dependencies
@@ -30,13 +30,13 @@
 
 ## Get started
 
-- Open the folder with client code in your terminal
+- Open the folder with the client code in your terminal
   `cd quantum`
 
 - Run the client code
   `npm run dev`
 
-- Open the folder with server code in your terminal
+- Open the folder with the server code in your terminal
   `cd quantum-be`
 
 - Run the server code
