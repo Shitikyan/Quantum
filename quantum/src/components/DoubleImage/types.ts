@@ -1,8 +1,9 @@
 export interface IDoubleImageProps {
-  width: number;
-  height: number;
+  width: number | "initial";
+  height: number | "initial";
   shadowColor: "red" | "green";
   src: string;
   hasShadow?: boolean;
   type?: "big" | "small";
+  rightShadow?: boolean;
 }

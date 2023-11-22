@@ -8,10 +8,12 @@ export const DoubleImage = ({
   src,
   hasShadow = true,
   type = "big",
+  rightShadow = false,
 }: IDoubleImageProps) => {
   let containerStyles = {
     width,
     height,
+    zIndex: 500,
   };
 
   if (!hasShadow) {
@@ -21,7 +23,9 @@ export const DoubleImage = ({
   return (
     <div
       style={containerStyles}
-      className={`${styles.container} ${styles[shadowColor]} ${styles[type]}`}
+      className={`${styles.container} ${rightShadow ? styles.right : ""} ${
+        styles[shadowColor]
+      } ${styles[type]}`}
     >
       <img src={src} className={styles.image} />
     </div>

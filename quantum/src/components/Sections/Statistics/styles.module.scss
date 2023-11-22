@@ -77,3 +77,19 @@
     }
   }
 }
+
+@media (max-width: 1000px) {
+  .container {
+    .top {
+      .left {
+        font-size: 14px;
+      }
+    }
+
+    .bottom {
+      .bottom_text {
+        font-size: 17px;
+      }
+    }
+  }
+}

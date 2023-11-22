@@ -1,8 +1,8 @@
 const User = require("./models/userModel");
 
-const getUsers = async (req, res) => {
+const getUsers = async (_, res) => {
   const users = await User.find({});
-  return res.send(users);
+  return res.status(200), send(users);
 };
 
 const createUser = async (req, res) => {

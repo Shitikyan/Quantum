@@ -2,8 +2,18 @@ import { DoubleImage } from "@/src/components/DoubleImage";
 import { IAdvisorProps } from "./types";
 
 import styles from "./styles.module.scss";
+import { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
-export const Advisor = ({ name, about, descr,src }: IAdvisorProps) => {
+export const Advisor = ({ name, about, descr, src }: IAdvisorProps) => {
+  const [height, setHeight] = useState(130);
+  const isSmallDevice = useMediaQuery({ maxWidth: 1100 });
+
+  useEffect(() => {
+    if (isSmallDevice) {
+      setHeight(110);
+    }
+  }, [isSmallDevice]);
   return (
     <div className={styles.container}>
       <div className={styles.info}>
@@ -12,7 +22,7 @@ export const Advisor = ({ name, about, descr,src }: IAdvisorProps) => {
           hasShadow={false}
           src={src}
           shadowColor="green"
-          height={130}
+          height={height}
           width={100}
         />
         <div className={styles.text_info}>

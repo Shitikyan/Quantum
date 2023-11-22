@@ -1,5 +1,7 @@
 import { DoubleImage } from "@/src/components/DoubleImage";
 import styles from "./styles.module.scss";
+import { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 const problemArr = [
   {
@@ -29,6 +31,18 @@ const problemArr = [
 ];
 
 export const ProblemsTop = () => {
+  const [imageSize, setImageSize] = useState<{
+    width: number | "initial";
+    height: number | "initial";
+  }>({
+    width: 730,
+    height: 564,
+  });
+  const isSmallDevice = useMediaQuery({ maxWidth: 1000 });
+
+  useEffect(() => {
+    setImageSize({ height: 200, width: 160 });
+  }, [isSmallDevice]);
   return (
     <div className={styles.container}>
       <div className={styles.box}>
@@ -44,10 +58,11 @@ export const ProblemsTop = () => {
               <p className={styles.coloredText}>{item.text2}</p>
             </div>
             <DoubleImage
-              height={576}
-              width={385}
+              height={imageSize.height}
+              width={imageSize.width}
               shadowColor="green"
               src={item.src}
+              rightShadow={i % 2 !== 0}
             />
           </div>
         ))}

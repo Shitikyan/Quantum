@@ -2,6 +2,8 @@
   position: relative;
   margin-top: 100px !important;
   margin-bottom: 100px !important;
+  z-index: 500;
+  background-color: var(--bg-color);
 
   .text {
     display: flex;
@@ -29,6 +31,17 @@
       color: var(--white);
       font-size: 22px;
       line-height: 1.5;
+    }
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .container {
+    .text {
+      .title {
+        font-size: 70px;
+      }
     }
   }
 }

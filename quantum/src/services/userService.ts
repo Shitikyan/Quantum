@@ -6,16 +6,11 @@ export class UserService {
   private base_url = String(process.env.NEXT_PUBLIC_BASE_URL);
 
   public async signin(body: IUser) {
-    const { data } = await axios.post(
-      `https://quantum.solicy.net/users/signup`,
-      body,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-      }
-    );
+    const { data } = await axios.post(`${this.base_url}/users/signup`, body, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     return data;
   }
 }

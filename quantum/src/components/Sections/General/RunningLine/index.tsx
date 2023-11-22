@@ -12,7 +12,7 @@ export const RunnigLine = ({
   return (
     <div
       className={styles.container}
-      style={{ position: "relative", height, width: "100%" }}
+      style={{ zIndex: 100, position: "relative", height, width: "100%" }}
     >
       {arr.map((_, i) => (
         <ul className={styles.list} key={i}>

@@ -17,6 +17,8 @@
         color: var(--white);
         letter-spacing: 2px;
 
+        animation: moveTitle 0.4s linear;
+
         .price1 {
           color: var(--electric-red);
           text-shadow: 0 0 10px var(--electric-red);
@@ -32,7 +34,62 @@
         color: var(--white);
         font-size: 16px;
         line-height: 1.5;
+
+        animation: moveDescr 0.4s linear;
       }
     }
+  }
+}
+
+@media (max-width: 1500px) {
+  .container {
+    .top_block {
+      padding: 0 5rem;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .container {
+    .top_block {
+      flex-direction: column-reverse;
+      align-items: center;
+
+      .title {
+        animation: none;
+      }
+
+      .descr {
+        animation: none;
+      }
+
+      .left_block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@keyframes moveTitle {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveDescr {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

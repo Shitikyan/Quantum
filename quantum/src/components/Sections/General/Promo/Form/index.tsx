@@ -1,19 +1,56 @@
 import { useState } from "react";
-import { IUser } from "./types";
+import { ErrorType, IUser } from "./types";
 import { RegisterButton } from "@/src/components/RegisterButton";
 import { UserService } from "@/src/services/userService";
 
 import styles from "./styles.module.scss";
 
-const validate = ({ firstname, lastname, email, phone }: IUser) => {
+const validate = (
+  { firstname, lastname, email, phone }: IUser,
+  setErr: (prop: ErrorType) => void
+) => {
   const nameRegex = /^[A-Za-z\s]{2,}$/;
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const phoneRegex = /^(?:(?:\+|00)\d{1,3}[\s-]?)?(?:\d{1,4}[\s-]?){1,14}\d$/;
+
+  const isCorrectName = nameRegex.test(firstname)
+    ? null
+    : {
+        type: "firstname",
+        message:
+          "firstname must contain at least two letters and only letters and spaces are allowed.",
+      };
+  const isCorrectLastName = nameRegex.test(lastname)
+    ? null
+    : {
+        type: "lastname",
+        message:
+          "lastname must contain at least two letters and only letters and spaces are allowed.",
+      };
+  const isCorrectPhone = phoneRegex.test(phone)
+    ? null
+    : {
+        type: "phone",
+        message: "Invalid phone number. Please enter a valid phone number.",
+      };
+  const isCorrectEmail = emailRegex.test(email)
+    ? null
+    : {
+        type: "email",
+        message: "Invalid email address. Please enter a valid email.",
+      };
+  setErr(
+    isCorrectName ||
+      isCorrectLastName ||
+      isCorrectPhone ||
+      isCorrectEmail || {
+        type: "none",
+        message: "",
+      }
+  );
+
   return (
-    nameRegex.test(firstname) &&
-    nameRegex.test(lastname) &&
-    phoneRegex.test(phone) &&
-    emailRegex.test(email)
+    !isCorrectName && !isCorrectLastName && !isCorrectPhone && !isCorrectEmail
   );
 };
 
@@ -22,6 +59,10 @@ export const Form = () => {
   const [lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [err, setError] = useState<ErrorType>({
+    type: "none",
+    message: "",
+  });
   const service = new UserService();
   return (
     <form className={styles.container}>
@@ -35,6 +76,9 @@ export const Form = () => {
         type="text"
         value={firstname}
       />
+      {err.type === "firstname" && (
+        <p className={styles.error}>{err.message}</p>
+      )}
       <input
         onChange={(ev: React.ChangeEvent<HTMLInputElement>) => {
           setLastName(ev.target.value);
@@ -44,6 +88,7 @@ export const Form = () => {
         type="text"
         value={lastname}
       />
+      {err.type === "lastname" && <p className={styles.error}>{err.message}</p>}
       <input
         onChange={(ev: React.ChangeEvent<HTMLInputElement>) => {
           setEmail(ev.target.value);
@@ -53,6 +98,7 @@ export const Form = () => {
         type="email"
         value={email}
       />
+      {err.type === "email" && <p className={styles.error}>{err.message}</p>}
       <input
         onChange={(ev: React.ChangeEvent<HTMLInputElement>) => {
           setPhone(ev.target.value);
@@ -62,19 +108,18 @@ export const Form = () => {
         placeholder="+(000)-00-000-000"
         value={phone}
       />
+      {err.type === "phone" && <p className={styles.error}>{err.message}</p>}
 
       <RegisterButton
         handleClick={(ev) => {
           ev.preventDefault();
-          if (validate({ email, firstname, lastname, phone })) {
+          if (validate({ email, firstname, lastname, phone }, setError)) {
             service.signin({ email, firstname, lastname, phone }).then(() => {
               setEmail("");
               setFirstName("");
               setLastName("");
               setPhone("");
             });
-          } else {
-            alert("chexav");
           }
         }}
       />

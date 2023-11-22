@@ -26,3 +26,19 @@
     max-width: 150px;
   }
 }
+
+@media (max-width: 1100px) {
+  .container {
+    .number {
+      font-size: 50px;
+    }
+
+    .name {
+      font-size: 18px;
+    }
+
+    .descr {
+      font-size: 12px;
+    }
+  }
+}
