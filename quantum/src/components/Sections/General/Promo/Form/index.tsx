@@ -69,7 +69,7 @@ export const Form = () => {
   const handleRegister = (ev: React.FormEvent) => {
     ev.preventDefault();
     if (validate({ email, firstname, lastname, phone }, setError)) {
-      service.signin({ email, firstname, lastname, phone }).then(() => {
+      service.signup({ email, firstname, lastname, phone }).then(() => {
         setEmail("");
         setFirstName("");
         setLastName("");

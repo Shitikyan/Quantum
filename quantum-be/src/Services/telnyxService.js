@@ -5,7 +5,6 @@ const telnyxApiKey =
 const telnyxTool = telnyx(telnyxApiKey);
 
 const sendCongratulatoryEmail = async (_, res) => {
-  console.log("????????????");
   try {
     const message = await telnyxTool.sendEmail.create({
       from: "aiquantum15@gmail.com",

@@ -5,8 +5,8 @@
 - Clone the repository
   `git clone https://github.com/Shitikyan/Quantum.git`
 
-- Choose the `develop` branch
-  `git checkout develop`
+- Choose the `main` branch
+  `git checkout main`
 
 ### Backend part
 
