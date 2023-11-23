@@ -6,6 +6,12 @@
   animation: moveVerticalText 1s ease;
 }
 
+@media (max-width: 600px) {
+  .container {
+    flex-direction: row;
+  }
+}
+
 @keyframes moveVerticalText {
   0% {
     opacity: 0;

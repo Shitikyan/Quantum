@@ -35,14 +35,15 @@ export const ProblemsTop = () => {
     width: number | "initial";
     height: number | "initial";
   }>({
-    width: 730,
-    height: 564,
+    height: 576,
+    width: 385,
   });
   const isSmallDevice = useMediaQuery({ maxWidth: 1000 });
 
   useEffect(() => {
-    setImageSize({ height: 200, width: 160 });
+    if (isSmallDevice) setImageSize({ height: 200, width: 160 });
   }, [isSmallDevice]);
+  
   return (
     <div className={styles.container}>
       <div className={styles.box}>

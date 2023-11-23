@@ -41,13 +41,22 @@ const advisors = [
 export const Advisors = () => {
   return (
     <section className={`${styles.container} swiper_container`}>
+      <div className={styles.firstSlideMobile}>
+        <div className={styles.text}>
+          <h4 className={styles.title}>Advisors</h4>
+          <p className={styles.descr}>
+            QuantumAI has wide support among investors. Among them are the
+            brightest scientists, businessmen and
+          </p>
+        </div>
+      </div>
       <Swiper
-        slidesPerView={"auto"}
+        slidesPerView="auto"
         initialSlide={1}
         centeredSlides={true}
         spaceBetween={30}
       >
-        <SwiperSlide>
+        <SwiperSlide className={styles.firstSlide}>
           <div className={styles.text}>
             <h4 className={styles.title}>Advisors</h4>
             <p className={styles.descr}>

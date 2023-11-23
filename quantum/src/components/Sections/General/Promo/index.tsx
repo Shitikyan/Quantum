@@ -8,7 +8,7 @@ import { useMediaQuery } from "react-responsive";
 export const Promo = () => {
   const [diameter, setDiameter] = useState(320);
   const isLaptop = useMediaQuery({ maxWidth: 1500 });
-  const isTablet = useMediaQuery({ maxWidth: 1200 });
+  
   useEffect(() => {
     if (isLaptop) {
       setDiameter(220);

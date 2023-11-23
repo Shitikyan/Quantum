@@ -42,3 +42,21 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .container {
+    width: 50%;
+    align-items: center;
+    .number {
+      font-size: 70px;
+    }
+
+    .name {
+      font-size: 34px;
+    }
+
+    .descr {
+      font-size: 12px;
+    }
+  }
+}

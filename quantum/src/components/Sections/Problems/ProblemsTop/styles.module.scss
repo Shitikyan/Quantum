@@ -50,6 +50,30 @@
   }
 }
 
+@media (max-width: 700px) {
+  .container {
+    .box {
+      .couple {
+        padding: 0px 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    .box {
+      .couple {
+        flex-direction: column !important;
+
+        .descr {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
 @keyframes coupleWidth {
   0% {
     opacity: 0;

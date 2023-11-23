@@ -8,12 +8,16 @@ import { useMediaQuery } from "react-responsive";
 export const Advisor = ({ name, about, descr, src }: IAdvisorProps) => {
   const [height, setHeight] = useState(130);
   const isSmallDevice = useMediaQuery({ maxWidth: 1100 });
+  const isSmallestDevice = useMediaQuery({ maxWidth: 500 });
 
   useEffect(() => {
     if (isSmallDevice) {
       setHeight(110);
+    } else if (isSmallestDevice) {
+      setHeight(160);
     }
-  }, [isSmallDevice]);
+  }, [isSmallDevice, isSmallestDevice]);
+
   return (
     <div className={styles.container}>
       <div className={styles.info}>

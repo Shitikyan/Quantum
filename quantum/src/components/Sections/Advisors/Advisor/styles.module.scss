@@ -38,3 +38,16 @@
     }
   }
 }
+
+@media (max-width: 500px) {
+  .container {
+    .info {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .descr {
+      font-size: 13px;
+    }
+  }
+}

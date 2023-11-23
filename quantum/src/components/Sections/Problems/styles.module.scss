@@ -15,13 +15,7 @@
       flex: 1;
       height: 1px;
       background-color: var(--electric-red);
-    }
-
-    .line1 {
       animation: growLine1 0.4s linear;
-    }
-    .line2 {
-      animation: growLine2 0.4s linear;
     }
 
     .title {
@@ -37,6 +31,7 @@
     .title_block {
       .title {
         margin-bottom: 40px;
+        font-size: 40px;
       }
 
       .line1,
@@ -47,20 +42,11 @@
   }
 }
 
-@keyframes growLine1 {
+@keyframes growLine {
   0% {
-    transform: translateX(-100%);
+    width: 0;
   }
   100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes growLine2 {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
+    width: 35%;
   }
 }

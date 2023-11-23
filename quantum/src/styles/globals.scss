@@ -464,6 +464,47 @@ html {
   }
 }
 
+@media (max-width: 600px) {
+  html {
+    body {
+      .swiper_container {
+        height: initial;
+
+        .swiper {
+          padding-bottom: 20px;
+
+          .swiper-slide {
+            width: 70%;
+            aspect-ratio: 2.2/3;
+          }
+
+          .swiper-slide:first-child {
+            animation: none;
+          }
+
+          .swiper-slide:not(:first-child) {
+            width: 60%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    body {
+      .swiper_container {
+        .swiper {
+          .swiper-slide {
+            width: 80%;
+          }
+        }
+      }
+    }
+  }
+}
+
 @keyframes moveSlide {
   0% {
     opacity: 0;

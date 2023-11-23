@@ -63,6 +63,7 @@
     gap: 20px;
 
     .subtitle {
+      text-align: center;
       position: relative;
       font-size: 30px;
       color: var(--white);
@@ -190,6 +191,34 @@
       .subtitle {
         font-size: 20px;
       }
+
+      .road_map {
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+    .top {
+      flex-direction: column;
+      align-items: center;
+
+      .line {
+        display: none;
+      }
+
+      .red_line {
+        display: none;
+      }
+    }
+
+    .bottom {
+      flex-direction: column;
     }
   }
 }

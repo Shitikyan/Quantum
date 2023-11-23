@@ -1,5 +1,5 @@
 require("dotenv").config();
-const usersRouter = require("./usersController");
+const usersRouter = require("./Controllers/usersController");
 const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
@@ -27,6 +27,4 @@ db.once("open", () => {
   console.log("Connected to MongoDB");
 });
 
-app.listen(PORT, () =>
-  console.log(`Server started on http://localhost:${PORT}`)
-);
+app.listen(PORT, () => console.log(`Server started on ${PORT}`));

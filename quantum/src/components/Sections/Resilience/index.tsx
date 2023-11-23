@@ -18,6 +18,7 @@ export const Resilience = () => {
       setImageSize({ height: "initial", width: "initial" });
     }
   }, [isTablet]);
+  
   return (
     <section className={styles.container}>
       <h3 className={styles.title}>WHY SHOULDN&#39;T YOU BE AFRAID?</h3>

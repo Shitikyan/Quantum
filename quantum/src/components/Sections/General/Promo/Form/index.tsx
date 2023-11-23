@@ -6,6 +6,7 @@ import { UserService } from "@/src/services/userService";
 import styles from "./styles.module.scss";
 
 const validate = (
+  // move to another file (utils)
   { firstname, lastname, email, phone }: IUser,
   setErr: (prop: ErrorType) => void
 ) => {
@@ -64,6 +65,19 @@ export const Form = () => {
     message: "",
   });
   const service = new UserService();
+
+  const handleRegister = (ev: React.FormEvent) => {
+    ev.preventDefault();
+    if (validate({ email, firstname, lastname, phone }, setError)) {
+      service.signin({ email, firstname, lastname, phone }).then(() => {
+        setEmail("");
+        setFirstName("");
+        setLastName("");
+        setPhone("");
+      });
+    }
+  };
+
   return (
     <form className={styles.container}>
       <h4 className={styles.title}>SIGN UP FOR FREE</h4>
@@ -110,19 +124,7 @@ export const Form = () => {
       />
       {err.type === "phone" && <p className={styles.error}>{err.message}</p>}
 
-      <RegisterButton
-        handleClick={(ev) => {
-          ev.preventDefault();
-          if (validate({ email, firstname, lastname, phone }, setError)) {
-            service.signin({ email, firstname, lastname, phone }).then(() => {
-              setEmail("");
-              setFirstName("");
-              setLastName("");
-              setPhone("");
-            });
-          }
-        }}
-      />
+      <RegisterButton handleClick={handleRegister} />
 
       <p className={styles.button_text}>
         Places left to register:<span className={styles.number}>16</span>

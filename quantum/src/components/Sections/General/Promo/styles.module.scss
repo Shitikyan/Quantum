@@ -72,6 +72,13 @@
   }
 }
 
+@media (max-width: 800px) {
+  .container {
+    .top_block {
+      padding: 0 20px;
+    }
+  }
+}
 @keyframes moveTitle {
   0% {
     opacity: 0;

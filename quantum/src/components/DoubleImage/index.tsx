@@ -1,3 +1,4 @@
+import { CSSProperties } from "react";
 import styles from "./styles.module.scss";
 import { IDoubleImageProps } from "./types";
 
@@ -10,14 +11,14 @@ export const DoubleImage = ({
   type = "big",
   rightShadow = false,
 }: IDoubleImageProps) => {
-  let containerStyles = {
+  const containerStyles: CSSProperties = {
     width,
     height,
     zIndex: 500,
   };
 
   if (!hasShadow) {
-    containerStyles = Object.assign({ boxShadow: "none" }, containerStyles);
+    containerStyles.boxShadow = "none";
   }
 
   return (
