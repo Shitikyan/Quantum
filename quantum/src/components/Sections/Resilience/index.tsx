@@ -1,18 +1,32 @@
+import { useMediaQuery } from "react-responsive";
 import { DoubleImage } from "../../DoubleImage";
-import { RunnigLine } from "../General/RunningLine";
-import { Swipper } from "./Swipper";
 
 import styles from "./styles.module.scss";
+import { useEffect, useState } from "react";
 
 export const Resilience = () => {
+  const isTablet = useMediaQuery({ maxWidth: 1500 });
+  const [imageSize, setImageSize] = useState<{
+    width: number | "initial";
+    height: number | "initial";
+  }>({
+    width: 730,
+    height: 564,
+  });
+  useEffect(() => {
+    if (isTablet) {
+      setImageSize({ height: "initial", width: "initial" });
+    }
+  }, [isTablet]);
+  
   return (
     <section className={styles.container}>
       <h3 className={styles.title}>WHY SHOULDN&#39;T YOU BE AFRAID?</h3>
       <div className={styles.box}>
         <DoubleImage
           shadowColor="green"
-          height={564}
-          width={730}
+          height={imageSize.height}
+          width={imageSize.width}
           src="https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/sert.png"
         />
         <div className={styles.left}>

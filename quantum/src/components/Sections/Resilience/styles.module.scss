@@ -7,19 +7,24 @@
   gap: 70px;
 
   .title {
+    text-align: center;
     display: inline-block;
     color: var(--white);
     font-weight: 700;
     text-transform: uppercase;
     font-size: 42px;
     text-shadow: 0 0 20px var(--electric-green);
+
+    animation: titleMove 0.2s ease;
   }
 
   .box {
     display: flex;
-    width: 100%;
-    justify-content: space-evenly;
-    z-index: 0;
+    z-index: 100;
+    width: 80%;
+    justify-content: space-between;
+
+    animation: boxMove 1s ease;
 
     .left {
       display: flex;
@@ -35,7 +40,7 @@
         gap: 40px;
 
         .line {
-            display: block;
+          display: block;
           width: 2px;
           height: 100%;
           background-color: #d7ff0d;
@@ -44,5 +49,48 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    padding: 20px;
+    .title {
+      font-size: 34px;
+    }
+    .box {
+      flex-direction: column;
+      gap: 40px;
+
+      .descr {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    .title {
+      font-size: 25px;
+    }
+  }
+}
+
+@keyframes titleMove {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes boxMove {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 80%;
   }
 }

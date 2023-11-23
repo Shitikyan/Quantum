@@ -1,7 +1,6 @@
-import { TChild } from "@/src/types/types";
+import { PropsWithChildren } from "react";
 
-export interface IRotatingText {
+export interface IRotatingText extends PropsWithChildren {
   text: string;
   diameter: number;
-  children: TChild;
 }

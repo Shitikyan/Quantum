@@ -1,7 +1,12 @@
 .container {
+  position: relative;
+  z-index: 500;
   background-color: var(--bg-color);
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 15px;
+  border-top: 1px solid var(--electric-green);
+  box-shadow: 0 0 10px var(--electric-green);
+  color: var(--electric-green);
+  justify-content: space-evenly;
+  padding: 20px 10px;
 }

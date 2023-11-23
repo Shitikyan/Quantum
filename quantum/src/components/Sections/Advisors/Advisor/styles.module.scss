@@ -30,3 +30,24 @@
     line-height: 1.5;
   }
 }
+
+@media (max-width: 1500px) {
+  .container {
+    .descr {
+      font-size: 15px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    .info {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .descr {
+      font-size: 13px;
+    }
+  }
+}

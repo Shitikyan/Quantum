@@ -3,4 +3,11 @@
   align-items: center;
   justify-content: center;
   align-self: flex-start;
+  z-index: 500;
+}
+
+@media (max-width: 600px) {
+  .container {
+    display: none;
+  }
 }

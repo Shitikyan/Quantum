@@ -5,7 +5,9 @@
   border-top: 1px solid;
   border-bottom: 1px solid;
   border-color: var(--electric-green);
-  z-index: 0;
+  background-color: var(--bg-color);
+  z-index: 100;
+  overflow: hidden;
 
   &:before {
     content: "";
@@ -70,6 +72,14 @@
       text-shadow: 0 0 10px var(--electric-green);
       font-size: 27px;
       text-align: center;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .container {
+    .box {
+      width: 85%;
     }
   }
 }

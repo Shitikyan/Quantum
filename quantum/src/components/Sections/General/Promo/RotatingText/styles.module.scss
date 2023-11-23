@@ -2,6 +2,9 @@
   position: relative;
   margin-bottom: 100px;
   margin-top: 50px;
+  z-index: 100;
+
+  animation: moveBlock 0.4s linear;
 
   .child {
     position: absolute;
@@ -9,8 +12,8 @@
     bottom: 50%;
     left: 50%;
     right: 50%;
-    width: 480px;
-    height: 320px;
+    width: 530px;
+    height: 300px;
     transform: translate(-50%, -50%);
     box-shadow: 0 0 20px var(--electric-red);
 
@@ -37,11 +40,32 @@
     }
   }
 }
+
+@media (max-width: 1500px) {
+  .container {
+    .child {
+      width: 320px;
+      height: 200px;
+    }
+  }
+}
+
 @keyframes rotateAnimation {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes moveBlock {
+  0% {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

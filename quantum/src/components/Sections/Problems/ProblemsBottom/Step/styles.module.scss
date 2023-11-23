@@ -26,3 +26,37 @@
     max-width: 150px;
   }
 }
+
+@media (max-width: 1100px) {
+  .container {
+    .number {
+      font-size: 50px;
+    }
+
+    .name {
+      font-size: 18px;
+    }
+
+    .descr {
+      font-size: 12px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 50%;
+    align-items: center;
+    .number {
+      font-size: 70px;
+    }
+
+    .name {
+      font-size: 34px;
+    }
+
+    .descr {
+      font-size: 12px;
+    }
+  }
+}

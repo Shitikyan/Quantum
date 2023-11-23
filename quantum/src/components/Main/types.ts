@@ -1,5 +1,3 @@
-import { TChild } from "@/src/types/types";
+import { PropsWithChildren } from "react";
 
-export interface IMainProps {
-  children: TChild | Array<TChild>;
-}
+export interface IMainProps extends PropsWithChildren {}

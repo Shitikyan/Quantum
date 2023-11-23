@@ -1,5 +1,3 @@
-import { TChild } from "@/src/types/types";
+import { PropsWithChildren } from "react";
 
-export interface ILayoutProps {
-  children: TChild | Array<TChild>;
-}
+export interface ILayoutProps extends PropsWithChildren {}

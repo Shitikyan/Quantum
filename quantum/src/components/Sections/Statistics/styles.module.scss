@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  padding: 15px;
 
   .title {
     font-size: 27px;
@@ -12,6 +13,7 @@
     letter-spacing: 2px;
     color: var(--white);
     margin-bottom: 60px;
+    text-align: center;
   }
 
   .top {
@@ -74,6 +76,22 @@
 
     .company_image {
       mix-blend-mode: color-burn;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    .top {
+      .left {
+        font-size: 14px;
+      }
+    }
+
+    .bottom {
+      .bottom_text {
+        font-size: 17px;
+      }
     }
   }
 }

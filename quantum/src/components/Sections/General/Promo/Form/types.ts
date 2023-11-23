@@ -4,3 +4,8 @@ export interface IUser {
   email: string;
   phone: string;
 }
+
+export interface ErrorType {
+  type: string;
+  message: string;
+}
