@@ -41,9 +41,20 @@
 
 @media (max-width: 500px) {
   .container {
+    height: 100%;
+    overflow-y: scroll;
+
     .info {
       flex-direction: column;
       align-items: center;
+      margin-bottom: 6px;
+      .image {
+        width: 55%;
+      }
+
+      .text_info {
+        width: 84%;
+      }
     }
 
     .descr {

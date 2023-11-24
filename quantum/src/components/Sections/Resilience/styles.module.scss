@@ -7,6 +7,7 @@
   gap: 70px;
 
   .title {
+    opacity: 0;
     text-align: center;
     display: inline-block;
     color: var(--white);
@@ -14,35 +15,43 @@
     text-transform: uppercase;
     font-size: 42px;
     text-shadow: 0 0 20px var(--electric-green);
-
-    animation: titleMove 0.2s ease;
   }
 
   .box {
     display: flex;
     z-index: 100;
-    width: 80%;
-    justify-content: space-between;
-
-    animation: boxMove 1s ease;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
 
     .left {
+      max-width: 40%;
+      opacity: 0;
+    }
+
+    .right {
       display: flex;
       flex-direction: column;
+      align-items: center;
       justify-content: space-evenly;
-      max-width: 600px;
+      opacity: 0;
+      max-width: 40%;
+      gap: 20px;
       color: var(--white);
 
       .descr {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 10px;
         color: var(--white);
         font-size: 20px;
-        display: flex;
         gap: 40px;
 
         .line {
           display: block;
           width: 2px;
-          height: 100%;
+          height: inherit;
           background-color: #d7ff0d;
           box-shadow: 0 0 4px #d7ff0d;
           border-radius: 15px;
@@ -57,13 +66,25 @@
     padding: 20px;
     .title {
       font-size: 34px;
+      animation: none;
+      opacity: 1;
+      transform: translateX(0);
     }
     .box {
       flex-direction: column;
-      gap: 40px;
+      gap: 60px;
 
-      .descr {
-        flex-direction: column;
+      .right {
+        max-width: 67%;
+        animation: none;
+        opacity: 1;
+      }
+
+      .left {
+        max-width: 67%;
+        animation: none;
+        opacity: 1;
+        transform: translateX(0);
       }
     }
   }
@@ -77,20 +98,16 @@
   }
 }
 
-@keyframes titleMove {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+@media (max-width: 500px) {
+  .container {
+    .box {
+      .right {
+        max-width: 100%;
 
-@keyframes boxMove {
-  0% {
-    width: 100%;
-  }
-  100% {
-    width: 80%;
+        .descr {
+          gap: 15px;
+        }
+      }
+    }
   }
 }

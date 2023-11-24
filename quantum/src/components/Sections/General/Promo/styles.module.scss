@@ -17,7 +17,7 @@
         color: var(--white);
         letter-spacing: 2px;
 
-        animation: moveTitle 0.4s linear;
+        //
 
         .price1 {
           color: var(--electric-red);
@@ -35,7 +35,7 @@
         font-size: 16px;
         line-height: 1.5;
 
-        animation: moveDescr 0.4s linear;
+        //
       }
     }
   }
@@ -77,26 +77,5 @@
     .top_block {
       padding: 0 20px;
     }
-  }
-}
-@keyframes moveTitle {
-  0% {
-    opacity: 0;
-    transform: translateY(-50%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes moveDescr {
-  0% {
-    opacity: 0;
-    transform: translateX(-50%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
   }
 }

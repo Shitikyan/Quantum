@@ -1,0 +1,78 @@
+.descr {
+  animation: moveDescr 0.4s linear;
+}
+
+.title {
+  animation: moveTitle 0.4s linear;
+}
+
+.form {
+  animation: moveForm 0.4s linear;
+}
+
+.video {
+  animation: moveBlock 0.4s linear;
+}
+
+@keyframes moveTitle {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveDescr {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveBlock {
+  0% {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveForm {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1100px) {
+  .descr,
+  .title,
+  .form,
+  .video {
+    opacity: 1 !important;
+    animation: none;
+  }
+  .title,
+  .form {
+    transform: translateY(0);
+  }
+
+  .descr,
+  .video {
+    transform: translateX(0);
+  }
+}

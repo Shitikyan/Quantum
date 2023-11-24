@@ -1,0 +1,43 @@
+.title {
+  animation: titleMove 0.2s ease forwards;
+}
+
+.left {
+  animation: leftMove 1s ease forwards;
+}
+
+.right {
+  animation: rightMove 1s ease forwards;
+}
+
+@keyframes titleMove {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes leftMove {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes rightMove {
+  0% {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+

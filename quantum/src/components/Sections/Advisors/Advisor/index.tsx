@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
 export const Advisor = ({ name, about, descr, src }: IAdvisorProps) => {
-  const [height, setHeight] = useState(130);
+  const [height, setHeight] = useState<number | "initial">(130);
+  const [width, setWidth] = useState<number | "initial">(100);
   const isSmallDevice = useMediaQuery({ maxWidth: 1100 });
   const isSmallestDevice = useMediaQuery({ maxWidth: 500 });
 
@@ -14,7 +15,8 @@ export const Advisor = ({ name, about, descr, src }: IAdvisorProps) => {
     if (isSmallDevice) {
       setHeight(110);
     } else if (isSmallestDevice) {
-      setHeight(160);
+      setHeight("initial");
+      setWidth("initial");
     }
   }, [isSmallDevice, isSmallestDevice]);
 
@@ -27,7 +29,8 @@ export const Advisor = ({ name, about, descr, src }: IAdvisorProps) => {
           src={src}
           shadowColor="green"
           height={height}
-          width={100}
+          width={width}
+          className={styles.image}
         />
         <div className={styles.text_info}>
           <span className={styles.name}>{name}</span>

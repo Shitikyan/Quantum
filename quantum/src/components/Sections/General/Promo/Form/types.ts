@@ -9,3 +9,7 @@ export interface ErrorType {
   type: string;
   message: string;
 }
+
+export interface IFormProps {
+  className: string;
+}

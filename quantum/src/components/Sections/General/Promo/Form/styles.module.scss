@@ -11,7 +11,7 @@
   max-width: 317px;
   gap: 19px;
 
-  animation: moveForm 0.4s linear;
+  //
 
   &::before {
     content: "";
@@ -77,13 +77,4 @@
   }
 }
 
-@keyframes moveForm {
-  0% {
-    opacity: 0;
-    transform: translateY(50%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+

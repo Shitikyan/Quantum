@@ -1,0 +1,25 @@
+.line {
+  animation: growLine 1s linear forwards;
+}
+
+.title {
+  animation: textAnimate 1s linear forwards;
+}
+
+@keyframes growLine {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 33%;
+  }
+}
+
+@keyframes textAnimate {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

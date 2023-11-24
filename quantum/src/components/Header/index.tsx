@@ -10,9 +10,14 @@ export const Header = () => {
         <Logo />
         <span className={styles.line} />
       </div>
-      <Link href="#signup" className={styles.button}>
+      <button
+        onClick={() => {
+          window.scroll({ top: 0, behavior: "smooth" });
+        }}
+        className={styles.button}
+      >
         Sign up for free
-      </Link>
+      </button>
     </header>
   );
 };

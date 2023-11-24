@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ErrorType, IUser } from "./types";
+import { ErrorType, IFormProps, IUser } from "./types";
 import { RegisterButton } from "@/src/components/RegisterButton";
 import { UserService } from "@/src/services/userService";
 
@@ -55,7 +55,7 @@ const validate = (
   );
 };
 
-export const Form = () => {
+export const Form = ({ className }: IFormProps) => {
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -79,7 +79,7 @@ export const Form = () => {
   };
 
   return (
-    <form className={styles.container}>
+    <form className={`${styles.container} ${className}`}>
       <h4 className={styles.title}>SIGN UP FOR FREE</h4>
       <input
         onChange={(ev: React.ChangeEvent<HTMLInputElement>) => {

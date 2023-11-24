@@ -1,18 +1,9 @@
 import { RegisterButton } from "../../RegisterButton";
 import { RunnigLine } from "../General/RunningLine";
 import { StatisticChart } from "./Chart";
-import styles from "./styles.module.scss";
+import { companies } from "./fakeData";
 
-const companies: string[] = [
-  "https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/pa1.png",
-  "https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/pa2.png",
-  "https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/pa3.png",
-  "https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/pa4.png",
-  "https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/pa5.png",
-  "https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/pa6.png",
-  "https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/pa7.png",
-  "https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/pa8.png",
-];
+import styles from "./styles.module.scss";
 
 export const Statistics = () => {
   return (
@@ -49,12 +40,14 @@ export const Statistics = () => {
         <p className={styles.bottom_text}>
           REGISTER FOR FREE TODAY AND GRAB YOUR FIRST PROFIT!
         </p>
-        <RegisterButton handleClick={() => location.replace("#")} />
+        <RegisterButton
+          handleClick={() => window.scroll({ top: 0, behavior: "smooth" })}
+        />
       </div>
       <RunnigLine repeatCount={3} height={235}>
         {companies.map((item, i) => (
           <div key={i} className={styles.company}>
-            <img src={item} alt="alt" className={styles.company_image} />
+            <img src={item} alt="company" className={styles.company_image} />
           </div>
         ))}
       </RunnigLine>
