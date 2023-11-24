@@ -17,8 +17,8 @@ module.exports = {
         {
           loader: "file-loader",
           options: {
-            publicPath: `${prefix}/_next/static/media/`,
-            outputPath: `public/videos/`, // Set the correct output path here
+            publicPath: `${prefix}/_next/videos`,
+            outputPath: "videos/",
             name: "[name].[hash].[ext]",
           },
         },

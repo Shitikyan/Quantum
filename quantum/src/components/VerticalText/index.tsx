@@ -2,9 +2,13 @@ import { IVerticalTextProps } from "./types";
 
 import styles from "./styles.module.scss";
 
-export const VerticalText = ({ className, text }: IVerticalTextProps) => {
+export const VerticalText = ({
+  animation,
+  className,
+  text,
+}: IVerticalTextProps) => {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${animation}`}>
       {text.split("").map((letter, i) => (
         <div className={className} key={i}>
           {letter}

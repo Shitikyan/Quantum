@@ -7,7 +7,7 @@ export default function Document() {
       <body>
         <Main />
         <canvas className="background"></canvas>
-        <script src="/particles.js-master\dist\particles.min.js"></script>
+        <script async src="/particles.js-master\dist\particles.min.js"></script>
         <NextScript />
       </body>
     </Html>

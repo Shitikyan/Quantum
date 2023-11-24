@@ -1,24 +1,13 @@
 .container {
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  transform: translateY(-50%);
   gap: 5px;
-
-  animation: moveVerticalText 1s ease;
 }
 
 @media (max-width: 600px) {
   .container {
     flex-direction: row;
-  }
-}
-
-@keyframes moveVerticalText {
-  0% {
-    opacity: 0;
-    transform: translateY(-50%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

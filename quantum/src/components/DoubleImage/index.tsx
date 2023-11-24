@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import { IDoubleImageProps } from "./types";
 
@@ -10,23 +10,28 @@ export const DoubleImage = ({
   hasShadow = true,
   type = "big",
   rightShadow = false,
+  className = "",
 }: IDoubleImageProps) => {
-  const containerStyles: CSSProperties = {
-    width,
-    height,
-    zIndex: 500,
-  };
+  const [containerStyles, setContainerStyles] = useState<CSSProperties>({});
 
-  if (!hasShadow) {
-    containerStyles.boxShadow = "none";
-  }
+  useEffect(() => {
+    if (width) {
+      setContainerStyles({ ...containerStyles, width });
+    }
+    if (height) {
+      setContainerStyles({ ...containerStyles, height });
+    }
+    if (!hasShadow) {
+      setContainerStyles({ ...containerStyles, boxShadow: "none" });
+    }
+  }, [width, height, hasShadow]);
 
   return (
     <div
       style={containerStyles}
       className={`${styles.container} ${rightShadow ? styles.right : ""} ${
         styles[shadowColor]
-      } ${styles[type]}`}
+      } ${styles[type]} ${className}`}
     >
       <img src={src} className={styles.image} />
     </div>

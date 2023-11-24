@@ -4,8 +4,6 @@
   margin-top: 50px;
   z-index: 100;
 
-  animation: moveBlock 0.4s linear;
-
   .child {
     position: absolute;
     top: 50%;
@@ -56,16 +54,5 @@
   }
   100% {
     transform: rotate(360deg);
-  }
-}
-
-@keyframes moveBlock {
-  0% {
-    opacity: 0;
-    transform: translateX(50%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
   }
 }

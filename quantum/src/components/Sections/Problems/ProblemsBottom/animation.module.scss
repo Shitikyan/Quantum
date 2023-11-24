@@ -1,0 +1,81 @@
+.descr {
+  animation: descrMove 1s ease forwards;
+}
+.line1 {
+  animation: line1Grow 1s ease forwards;
+}
+.line2 {
+  animation: line2Grow 2s ease-out forwards;
+}
+.subtitle {
+  animation: subtitleMove 1s ease forwards;
+}
+.title {
+  animation: moveTitle 1s ease forwards;
+}
+
+.steps {
+  animation: stepsMove 1s ease forwards;
+}
+
+@keyframes line1Grow {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 400px;
+  }
+}
+
+@keyframes descrMove {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes line2Grow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes subtitleMove {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes stepsMove {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveTitle {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

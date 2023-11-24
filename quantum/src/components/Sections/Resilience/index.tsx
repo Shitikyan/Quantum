@@ -1,52 +1,56 @@
-import { useMediaQuery } from "react-responsive";
 import { DoubleImage } from "../../DoubleImage";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { IAnimation } from "./types";
+import { revealFn } from "@/src/utils/reveal";
+import { data } from "./fakeData";
+import image from "@/public/images/sert.png";
 
 import styles from "./styles.module.scss";
-import { useEffect, useState } from "react";
+import animations from "./animation.module.scss";
 
 export const Resilience = () => {
-  const isTablet = useMediaQuery({ maxWidth: 1500 });
-  const [imageSize, setImageSize] = useState<{
-    width: number | "initial";
-    height: number | "initial";
-  }>({
-    width: 730,
-    height: 564,
+  const [animated, setAnimated] = useState<IAnimation>({
+    left: "",
+    right: "",
+    title: " ",
   });
+
+  const ref = useRef<HTMLDivElement>(null);
+
+  const callBack = () => {
+    setAnimated({
+      title: animations.title,
+      left: animations.left,
+      right: animations.right,
+    });
+    window.removeEventListener("scroll", reveal);
+  };
+
+  const reveal = useCallback(() => revealFn(callBack, ref), []);
+
   useEffect(() => {
-    if (isTablet) {
-      setImageSize({ height: "initial", width: "initial" });
-    }
-  }, [isTablet]);
-  
+    reveal();
+    window.addEventListener("scroll", reveal);
+  }, []);
+
   return (
-    <section className={styles.container}>
-      <h3 className={styles.title}>WHY SHOULDN&#39;T YOU BE AFRAID?</h3>
+    <section ref={ref} className={styles.container}>
+      <h3 className={`${styles.title} ${animated.title}`}>
+        WHY SHOULDN&#39;T YOU BE AFRAID?
+      </h3>
       <div className={styles.box}>
         <DoubleImage
+          className={`${styles.left} ${animated.left}`}
           shadowColor="green"
-          height={imageSize.height}
-          width={imageSize.width}
-          src="https://gravetechno-jy.cloud/lander/quantum-ai4-en-eu-ca-au-gb-sg-hk/images/sert.png"
+          src={image.src}
         />
-        <div className={styles.left}>
-          <p className={styles.descr}>
-            <span className={styles.line} />
-            You can withdraw profits from your first deposit to any payment
-            system or bank at any time. All QuantumAI transactions are only
-            supported and processed through World Bank.
-          </p>
-          <p className={styles.descr}>
-            <span className={styles.line} />
-            You are not alone. The best manager will help you multiply your
-            first deposit and solve any difficulties that may arise.
-          </p>
-          <p className={styles.descr}>
-            <span className={styles.line} />
-            QuantumAI users&#39; data remains confidential. After 30 days of not
-            using the platform, all data is automatically erased from our
-            servers.
-          </p>
+        <div className={`${styles.right} ${animated.right}`}>
+          {data.map((text: string, i) => (
+            <p key={i} className={styles.descr}>
+              <span className={styles.line} />
+              {text}
+            </p>
+          ))}
         </div>
       </div>
     </section>

@@ -6,19 +6,30 @@
   z-index: 100;
 
   .title_block {
-    width: 100%;
     display: flex;
+    justify-content: center;
+    width: 100%;
     align-items: center;
     gap: 20px;
 
     .line {
-      flex: 1;
+      box-shadow: 0 0 10px var(--electric-red);
+      position: absolute;
       height: 1px;
       background-color: var(--electric-red);
-      animation: growLine1 0.4s linear;
+    }
+
+    .line1 {
+      left: 0;
+    }
+
+    .line2 {
+      right: 0;
     }
 
     .title {
+      margin-bottom: 80px;
+      opacity: 0;
       font-size: 86px;
       color: #fff;
       text-shadow: 0 0 6px var(--electric-red);

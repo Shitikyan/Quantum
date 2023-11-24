@@ -2,11 +2,11 @@ import { IRotatingText } from "./types";
 
 import styles from "./styles.module.scss";
 
-export const RotatingText = ({ text, diameter, children }: IRotatingText) => {
+export const RotatingText = ({ text, diameter, children, className }: IRotatingText) => {
   return (
     <div
       style={{ width: 2 * diameter, height: 2 * diameter }}
-      className={styles.container}
+      className={`${styles.container} ${className}`}
     >
       <div className={styles.child}>{children}</div>
       <div className={styles.rotate_box}>
