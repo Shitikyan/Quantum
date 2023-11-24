@@ -2,17 +2,18 @@ require("dotenv").config();
 var telnyx = require("telnyx")(process.env.TENYX_API_KEY);
 
 // const sensTelnyxSms
-telnyx.messages.create(
-  {
-    from: "+18665552368", // Your Telnyx number
-    to: "+18445552367",
-    text: "Hello, World!",
-  },
-  function (err, response) {
-    // asynchronously called
-    console.log(response);
-  }
-);
+const sendTelnyxSms = (userPhone) => {
+  const number = process.env.TENYX_PHONE;
+  telnyx.messages.create(
+    {
+      from: number,
+      to: userPhone,
+      text: "CONGRATULATIONS!YOUR ORDER IS ACCEPTED! Our operator will contact you shortly for confirmation., World!",
+    },
+    function (err, response) {
+      console.log(response);
+    }
+  );
+};
 
-
-module.exports = {};
+module.exports = { sendTelnyxSms };
