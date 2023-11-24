@@ -1,7 +1,6 @@
 require("dotenv").config();
 var telnyx = require("telnyx")(process.env.TENYX_API_KEY);
 
-// const sensTelnyxSms
 const sendTelnyxSms = (userPhone) => {
   const number = process.env.TENYX_PHONE;
   telnyx.messages.create(
