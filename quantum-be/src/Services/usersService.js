@@ -1,5 +1,5 @@
 const User = require("../models/userModel");
-
+const { sendTelnyxSms } = require("./telnyxService");
 const getUsers = async (_, res) => {
   const users = await User.find({});
   return res.status(200), send(users);
@@ -24,6 +24,7 @@ const createUser = async (req, res) => {
 
     const newUser = new User(req.body);
     await newUser.save();
+    sendTelnyxSms(req.body.phone);
     return res.status(201).send("User created successfully");
   } catch (err) {
     return res.json(err);
