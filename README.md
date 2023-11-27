@@ -13,8 +13,13 @@
 - Open the folder with the server code in your terminal
   `cd quantum-be`
 
-- Install dependencies
+- Install dependencies npm
   `npm i`
+
+- Install dependencies yarn
+  `yarn install`
+
+- [Node](https://nodejs.org/en/) version:: `v20.9.0`
 
 #### Connect to MongoDB
 
@@ -25,8 +30,13 @@
 - Open the folder with the client code in your terminal
   `cd quantum`
 
-- Install dependencies
+- Install dependencies npm
   `npm i`
+
+- Install dependencies yarn
+  `yarn install`
+
+- [Node](https://nodejs.org/en/) version:: `v20.9.0`
 
 ## Get started
 
@@ -43,6 +53,18 @@
   `npm run dev`
 
 _You can check the app on `http://localhost:3000`_
+
+## Build Project
+
+### The backend is written in JS.
+
+### Frontend
+
+- Open the folder with the client code in your terminal
+  `cd quantum`
+
+- Build the client code
+  `npm run build`
 
 ## Tools and technologies
 

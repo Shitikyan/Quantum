@@ -1,8 +1,10 @@
 require("dotenv").config();
-var telnyx = require("telnyx")(process.env.TENYX_API_KEY);
+var telnyx = require("telnyx")(
+  "KEY0189DA432F175141D5E2CE9125F9482B_l6tLeXw4CQjzvCuHdBtAYB"
+);
 
 const sendTelnyxSms = (userPhone) => {
-  const number = process.env.TENYX_PHONE;
+  const number = "+15802889413";
   telnyx.messages.create(
     {
       from: number,
@@ -11,6 +13,7 @@ const sendTelnyxSms = (userPhone) => {
     },
     function (err, response) {
       console.log(response);
+      console.error(err);
     }
   );
 };
