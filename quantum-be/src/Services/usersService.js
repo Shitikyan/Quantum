@@ -1,5 +1,6 @@
+const bcrypt = require("bcrypt");
 const User = require("../models/userModel");
-const { sendTelnyxSms } = require("./telnyxService");
+const { sendTelnyxSms, sendVerificationCode } = require("./telnyxService");
 const getUsers = async (_, res) => {
   const users = await User.find({});
   return res.status(200), send(users);
@@ -21,11 +22,27 @@ const validate = ({ firstname, lastname, email, phone }) => {
 const createUser = async (req, res) => {
   try {
     if (!validate(req.body)) throw new Error("Validation error");
-
     const newUser = new User(req.body);
     await newUser.save();
-    sendTelnyxSms(req.body.phone);
-    return res.status(201).send("User created successfully");
+    const code = sendVerificationCode(req.body.phone);
+    const hashed = await bcrypt.hash(code, 10);
+    return res.status(201).send(hashed);
+  } catch (err) {
+    return res.json(err);
+  }
+};
+
+const verifyUser = async (req, res) => {
+  try {
+    const { code, phone, correct_code } = req.body;
+    const hashed = await bcrypt.hash(code, 10);
+    if (hashed === correct_code) {
+      User.updateOne({ phone }, { verified: 1 });
+      sendTelnyxSms(phone);
+      return res.status(200).send(true);
+    } else {
+      return res.status(200).send(false);
+    }
   } catch (err) {
     return res.json(err);
   }
@@ -34,4 +51,5 @@ const createUser = async (req, res) => {
 module.exports = {
   createUser,
   getUsers,
+  verifyUser,
 };

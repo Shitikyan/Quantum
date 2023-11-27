@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema({
   lastname: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   phone: { type: String, required: true, unique: true },
+  verified: { type: Number, default: 0, enum: [0, 1] },
 });
 
 const User = mongoose.model("user", userSchema);
