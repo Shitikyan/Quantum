@@ -1,5 +1,5 @@
-const generateRandomInteger = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+const generateRandomInteger = () => {
+  return Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
 };
 
 module.exports = generateRandomInteger;

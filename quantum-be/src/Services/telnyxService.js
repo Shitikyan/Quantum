@@ -26,7 +26,7 @@ const sendVerificationCode = (userPhone) => {
     {
       from: number,
       to: userPhone,
-      text: code,
+      text: `Your verification code is ${code}`,
     },
     function (err, response) {
       console.log(response);

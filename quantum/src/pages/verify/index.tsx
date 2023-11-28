@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { handleSubmitCode } from "@/src/utils/verify";
 import { Layout } from "@/src/components/Layout";
 import { Header } from "@/src/components/Header";
 import { Footer } from "@/src/components/Footer";
+import { UserService } from "@/src/services/userService";
 
 import styles from "./styles.module.scss";
 import { useRouter } from "next/router";
@@ -10,7 +10,10 @@ import { useRouter } from "next/router";
 const VerifyPAGE = () => {
   const [code, setCode] = useState<string>("");
   const [err, setErr] = useState<boolean>(false);
-  const route = useRouter();
+
+  const router = useRouter();
+  const user = new UserService();
+
   return (
     <Layout>
       <Header />
@@ -28,18 +31,23 @@ const VerifyPAGE = () => {
             placeholder="XXXX"
           />
           <button
-            onClick={() =>
-              handleSubmitCode(code, setErr, () => {
-                route.push("/", {
-                  query: {
-                    verified: true,
-                  },
-                });
-              })
-            }
+            onClick={async (ev) => {
+              ev.preventDefault();
+              const { data } = await user.verify(code);
+              if (data?.verified) router.push("/");
+            }}
             className={styles.button}
           >
             Submit
+          </button>
+          <button
+            className={styles.button}
+            onClick={async (ev) => {
+              ev.preventDefault();
+              await user.sendVerification();
+            }}
+          >
+            Sand Again
           </button>
         </form>
       </div>

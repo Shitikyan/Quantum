@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   phone: { type: String, required: true, unique: true },
   verified: { type: Number, default: 0, enum: [0, 1] },
+  code: { type: Number, default: null },
 });
 
 const User = mongoose.model("user", userSchema);

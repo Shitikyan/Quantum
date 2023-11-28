@@ -2,64 +2,17 @@ import { useState } from "react";
 import { ErrorType, IFormProps, IUser } from "./types";
 import { RegisterButton } from "@/src/components/RegisterButton";
 import { UserService } from "@/src/services/userService";
+import { useRouter } from "next/router";
+import { validate } from "@/src/utils/validate";
 
 import styles from "./styles.module.scss";
-
-const validate = (
-  // move to another file (utils)
-  { firstname, lastname, email, phone }: IUser,
-  setErr: (prop: ErrorType) => void
-) => {
-  const nameRegex = /^[A-Za-z\s]{2,}$/;
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  const phoneRegex = /^(?:(?:\+|00)\d{1,3}[\s-]?)?(?:\d{1,4}[\s-]?){1,14}\d$/;
-
-  const isCorrectName = nameRegex.test(firstname)
-    ? null
-    : {
-        type: "firstname",
-        message:
-          "firstname must contain at least two letters and only letters and spaces are allowed.",
-      };
-  const isCorrectLastName = nameRegex.test(lastname)
-    ? null
-    : {
-        type: "lastname",
-        message:
-          "lastname must contain at least two letters and only letters and spaces are allowed.",
-      };
-  const isCorrectPhone = phoneRegex.test(phone)
-    ? null
-    : {
-        type: "phone",
-        message: "Invalid phone number. Please enter a valid phone number.",
-      };
-  const isCorrectEmail = emailRegex.test(email)
-    ? null
-    : {
-        type: "email",
-        message: "Invalid email address. Please enter a valid email.",
-      };
-  setErr(
-    isCorrectName ||
-      isCorrectLastName ||
-      isCorrectPhone ||
-      isCorrectEmail || {
-        type: "none",
-        message: "",
-      }
-  );
-
-  return (
-    !isCorrectName && !isCorrectLastName && !isCorrectPhone && !isCorrectEmail
-  );
-};
 
 export const Form = ({ className }: IFormProps) => {
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const router = useRouter();
   const [err, setError] = useState<ErrorType>({
     type: "none",
     message: "",
@@ -74,6 +27,7 @@ export const Form = ({ className }: IFormProps) => {
         setFirstName("");
         setLastName("");
         setPhone("");
+        router.push("/verify");
       });
     }
   };

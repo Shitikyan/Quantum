@@ -20,10 +20,6 @@ export const RunnigLine = ({
     }
   }, [ref]);
 
-  useEffect(() => {
-    console.log(arr);
-  }, [arr]);
-
   return (
     <div ref={ref} className={styles.container} style={{ height }}>
       {arr.map((_, i) => (

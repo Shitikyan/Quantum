@@ -1,5 +1,6 @@
 import "dotenv/config";
-import axios, { AxiosError } from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
+import Cookies from "js-cookie";
 import { IUser } from "../components/Sections/General/Promo/Form/types";
 
 export class UserService {
@@ -7,6 +8,16 @@ export class UserService {
 
   constructor() {
     this.base_url = String(process.env.NEXT_PUBLIC_BASE_URL);
+  }
+  public async getUserByPhone(phone: string): Promise<any> {
+    try {
+      const response: AxiosResponse = await axios.get(
+        `${this.base_url}/users/${phone}`
+      );
+      return response.data;
+    } catch (error: any) {
+      return null;
+    }
   }
 
   public async signup(body: IUser): Promise<string | AxiosError> {
@@ -16,33 +27,47 @@ export class UserService {
       },
     });
 
-    if (data && data.code) {
-      localStorage.setItem("verification_code", data.code);
-      localStorage.setItem("phone_number", data.phone);
-    }
+    if (data && data.phone) Cookies.set("phone_number", data.phone);
     return data;
   }
 
-  public async verify(code: string): Promise<{ is_correct: boolean }> {
-    const phone = localStorage.getItem("phone_number");
-    const correct_code = localStorage.getItem("verification_code");
+  public async sendVerification() {
     try {
-      const { data } = await axios.post(
-        `${this.base_url}/users/verify`,
-        { code, phone, correct_code },
+      const phone = Cookies.get("phone_number");
+
+      if (!phone) {
+        throw new Error("Phone number not found in cookies");
+      }
+
+      await axios.post(
+        `${this.base_url}/users/resend-verification`,
+        { phone },
         {
           headers: {
             "Content-Type": "application/json",
           },
         }
       );
-      if (data?.is_correct) {
-        return {
-          is_correct: data.is_correct,
-        };
-      }
-      return { is_correct: false };
-    } catch (err) {
+    } catch (error: any) {
+      console.error("Error sending verification:", error.message);
+      throw error;
+    }
+  }
+
+  public async verify(code: string): Promise<any> {
+    const phone = Cookies.get("phone_number");
+    try {
+      const res = await axios.post(
+        `${this.base_url}/users/verify`,
+        { code, phone },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      return res;
+    } catch (err: any) {
       return { is_correct: false };
     }
   }

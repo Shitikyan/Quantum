@@ -1,4 +1,3 @@
-const bcrypt = require("bcrypt");
 const User = require("../models/userModel");
 const { sendTelnyxSms, sendVerificationCode } = require("./telnyxService");
 const getUsers = async (_, res) => {
@@ -19,14 +18,30 @@ const validate = ({ firstname, lastname, email, phone }) => {
   );
 };
 
+const getUsersByPhoneNumber = async (req, res) => {
+  try {
+    const { phone } = req.params;
+
+    const user = await User.findOne({ phone });
+
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
+
+    return res.status(200).send(user);
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
+};
+
 const createUser = async (req, res) => {
   try {
     if (!validate(req.body)) throw new Error("Validation error");
     const newUser = new User(req.body);
     await newUser.save();
     const code = sendVerificationCode(req.body.phone);
-    const hashed = await bcrypt.hash(code, 10);
-    return res.status(201).send(hashed);
+    await User.updateOne({ phone: req.body.phone }, { $set: { code } });
+    return res.status(201).send({ phone: req.body.phone });
   } catch (err) {
     return res.json(err);
   }
@@ -34,15 +49,30 @@ const createUser = async (req, res) => {
 
 const verifyUser = async (req, res) => {
   try {
-    const { code, phone, correct_code } = req.body;
-    const hashed = await bcrypt.hash(code, 10);
-    if (hashed === correct_code) {
-      User.updateOne({ phone }, { verified: 1 });
-      sendTelnyxSms(phone);
-      return res.status(200).send(true);
-    } else {
-      return res.status(200).send(false);
+    const { code, phone } = req.body;
+    const user = await User.findOne({ phone });
+
+    if (!user) {
+      return res.status(404).send("User not found");
     }
+    if (code == user.code) {
+      await User.updateOne({ phone }, { verified: 1 });
+      sendTelnyxSms(phone);
+      return res.status(200).send({ verified: true });
+    } else {
+      return res.status(200).send({ verified: false });
+    }
+  } catch (err) {
+    return res.json(err);
+  }
+};
+
+const sendCodeAgain = async (req, res) => {
+  try {
+    const { phone } = req.body;
+    const code = sendVerificationCode(phone);
+    await User.updateOne({ phone }, { $set: { code } });
+    return res.status(200).send(true);
   } catch (err) {
     return res.json(err);
   }
@@ -52,4 +82,6 @@ module.exports = {
   createUser,
   getUsers,
   verifyUser,
+  getUsersByPhoneNumber,
+  sendCodeAgain,
 };
