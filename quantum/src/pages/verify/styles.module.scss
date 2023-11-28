@@ -94,3 +94,40 @@
     }
   }
 }
+
+@media (max-width: 1050px) {
+  .box {
+    .form {
+      width: 65%;
+
+      .title {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+@media (max-width: 530px) {
+  .box {
+    .form {
+      width: 65%;
+
+      .title {
+        font-size: 16px;
+      }
+
+      .descr {
+        font-size: 14px;
+      }
+
+      .input,
+      .input::placeholder {
+        font-size: 15px;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  }
+}
